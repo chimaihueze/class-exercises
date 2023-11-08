@@ -46,6 +46,7 @@
     <Compile Include="Week5.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Week6.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

@@ -581,5 +581,128 @@ namespace Exercises
             }
 
         }
+
+        // Write a method that reads a string on the keyboard and prints on the screen if it is an integer or not.
+        // Do the exercise twice: 1st using if statement, 2nd using switch instruction.
+        // HELP: use  “int.TryParse(x, out value)” ,
+        // x is string (the inputted string), value is int Type, that returns true if x is successfully parsed to int.
+
+        public static void Exercise27()
+        {
+            Console.Write("Enter an integer or string: ");
+            string word = Console.ReadLine();
+            int number;
+
+            bool intOrString = int.TryParse(word, out number);
+
+            if (intOrString == true)
+            {
+                Console.WriteLine("{0} is an integer.", word);
+            } else
+            {
+                Console.WriteLine("{0} is a string.", word);
+            }
+
+        }
+
+        // Write a method that prints on the screen appropriate information to guide the user:
+        // Method must calculate area of three shapes:
+        // Area of a triangle (inputs: base, height),
+        // area of a trapezoid (inputs: edge a, edge b, height),
+        // area of a rectangle (inputs: base, height). 
+        public static void Exercise28()
+        {
+            Console.WriteLine("Let's calculate the area of a traingle");
+
+            Console.Write("Enter the base of the triangle: ");
+            double triangleBase = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter the height of the triangle: ");
+            double triangleHeight = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Area of the traingle is {0}.", ((0.5 * triangleBase) * triangleHeight));
+
+            Console.WriteLine("");
+
+            Console.WriteLine("Let's calculate the area of a trapezoid");
+
+            Console.Write("Enter edge a: ");
+            double a = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter edge b: ");
+            double b = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter the height: ");
+            double height = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Area of the trapezoid is {0}.", (((a + b) / 2) * height));
+
+            Console.WriteLine("");
+
+
+            Console.WriteLine("Let's calculate the area of a rectangle");
+            Console.Write("Enter the base: ");
+            double rectangleBase = Convert.ToDouble(Console.ReadLine());
+
+            Console.Write("Enter the height: ");
+            double rectangleHeight = Convert.ToDouble(Console.ReadLine());
+
+            Console.WriteLine("Area of the rectangle {0}", (rectangleBase * rectangleHeight));
+
+        }
+
+        // Write a method to read 10 positive numbers on the keyboard and print the following values:  
+        // a. Addition of the numbers
+        // b. Arithmetic mean of the numbers
+        // c. Largest number
+        // d. Smaller number.
+
+        public void Exercise29()
+        {
+            Console.Write("Enter the first number: ");
+            int first = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            int second = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the third number: ");
+            int third = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the fourth number: ");
+            int fourth = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the fifth number: ");
+            int fifth = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the sixth number: ");
+            int sixth = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the seventh number: ");
+            int seventh = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the eight number: ");
+            int eigth = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the ninth number: ");
+            int ninth = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Enter the tenth number: ");
+            int tenth = Convert.ToInt32(Console.ReadLine());
+
+
+            double sum = first + second + third + fourth + fifth + sixth + seventh + eigth + ninth + tenth;
+
+            Console.WriteLine("");
+
+            Console.WriteLine("Sum of all numbers: {0}", sum);
+            Console.WriteLine("Mean of all numbers: {0}", sum / 10);
+
+            
+        }
+
+        // 
+
     }
+
+
 }
