@@ -108,21 +108,21 @@ namespace Exercises
 
 			Console.Write("Enter size of array: ");
 			int size = Convert.ToInt32(Console.ReadLine());
-		   
-				int[] intArray;
-				intArray = new int[size];
 
-				for (int i = 0; i < intArray.Length; i++)
-				{
-					intArray[i] = i + 1;
-				}
+			int[] intArray;
+			intArray = new int[size];
 
-				Console.Write("The array is: ");
+			for (int i = 0; i < intArray.Length; i++)
+			{
+				intArray[i] = i + 1;
+			}
 
-				for (int i = 0; i < size; i++)
-				{
-					Console.Write(intArray[i] + " ");
-				}
+			Console.Write("The array is: ");
+
+			for (int i = 0; i < size; i++)
+			{
+				Console.Write(intArray[i] + " ");
+			}
 			Console.WriteLine("");
 		}
 
@@ -172,9 +172,9 @@ namespace Exercises
 
 			for (int i = 0; i < intArray.Length; i++)
 			{
-				
+
 				intArray[i] = randomNumber.Next(1, 100);
-				
+
 
 				sum += intArray[i];
 				if (intArray[i] < 10)
@@ -182,7 +182,7 @@ namespace Exercises
 					lessThan10++;
 				}
 				Console.Write(intArray[i] + " ");
-				
+
 			}
 
 			// Array B
@@ -191,10 +191,10 @@ namespace Exercises
 			{
 				if (i != size)
 				{
-					intArrayB[i] = intArray[i] + intArray[i]+1;
+					intArrayB[i] = intArray[i] + intArray[i] + 1;
 					Console.Write(intArrayB[i] + " ");
 				}
-				
+
 			}
 
 			Console.WriteLine("\nSum of array: {0}", sum);
@@ -229,11 +229,11 @@ namespace Exercises
 				{
 					Console.WriteLine("The array contains: " + number);
 					break;
-				} else if (i == intArray.Length - 1) 
+				} else if (i == intArray.Length - 1)
 				{
-                    Console.WriteLine("The array doesn't contain: " + number);
-                }
-            }
+					Console.WriteLine("The array doesn't contain: " + number);
+				}
+			}
 
 			// finding the largest
 
@@ -247,7 +247,193 @@ namespace Exercises
 					position = i;
 				}
 			}
-            Console.WriteLine("Largest number: {0}. Position: {1}", largestNumber, position+1);
+			Console.WriteLine("Largest number: {0}. Position: {1}", largestNumber, position + 1);
+		}
+
+		//Write a method to read 10 positive numbers on the keyboard and print the following values:  
+		//a.Addition of the numbers
+		//b.Arithmetic mean of the numbers
+		//c.Largest number
+		//d.Smaller number.
+
+		public static void Exercise6()
+		{
+
+			int[] intArray = new int[10];
+			int sum = 0;
+			double mean = 0;
+			int largestNumber = 0;
+			int smallestNumber = 0;
+
+			for (int i = 0; i < intArray.Length; i++)
+			{
+				Console.Write("Enter a positive number: ");
+				int number = Convert.ToInt32(Console.ReadLine());
+
+				intArray[i] = number;
+				sum += number;
+			}
+
+			// calculating the arithmetic mean
+			mean = sum / intArray.Length;
+			Console.WriteLine("Arithmetic mean: {0}", mean);
+
+			// finding the largest number
+			for (int i = 0; i < intArray.Length; i++)
+			{
+				if (intArray[i] > largestNumber)
+				{
+					largestNumber = intArray[i];
+				}
+			}
+			Console.WriteLine("Largest number: {0}", largestNumber);
+
+			// finding the smallest number 
+			smallestNumber = largestNumber;
+			for (int i = 0; i < intArray.Length; i++)
+			{
+				if (intArray[i] < smallestNumber)
+				{
+					smallestNumber = intArray[i];
+				}
+			}
+			Console.WriteLine("Smallest number: {0}", smallestNumber);
+		}
+
+		// Repeat the above exercise, but instead of 10,
+		// keep reading the values from the keyboard until the user inputs ‘q’ (Quit)
+		// – i.e., the number of values is not fixed. 
+
+		// Hint: Arrays are fixed in length.
+		// So, if your array is size, say 5, you can only place 5 inputs in array.
+		// If inputs are more than 5, you must implement capacity management.
+		// For example you replace array with a new array of Length + 5.
+
+		public static void Exercise7()
+		{
+			List<int> numbers = new List<int>();
+
+			Console.WriteLine("Enter a positive number or q to quit: ");
+
+			string input;
+
+			while (true)
+			{
+                Console.Write("Enter a number (or 'q' to quit): ");
+                input = Console.ReadLine();
+
+				if (input == "q")
+				{
+                    Console.WriteLine("Quitting now");
+                    break;
+				}
+
+				if (int.TryParse(input, out int number) && number > 0)
+				{
+					numbers.Add(number);
+				} else
+				{
+                    Console.WriteLine("Invalid input! Enter a valid number or q to quit");
+                }
+			}
+
+			if (numbers.Count() == 0)
+			{
+                Console.WriteLine("No valid numbers entered");
+            } else
+			{
+				int sum = 0;
+				double mean = 0;
+				int largestNumber = 0;
+				int smallestNumber = 0;
+
+                foreach (int number in numbers)
+                {
+					sum += number;
+
+					if (number > largestNumber)
+					{
+						largestNumber = number;
+					}
+
+					if (number < smallestNumber)
+					{
+						smallestNumber = number;
+					}
+                }
+
+				mean = sum / numbers.Count();
+                Console.WriteLine("Mean: {0}", mean);
+                Console.WriteLine("Sum: {0}", sum);
+                Console.WriteLine("Largest number: {0}", largestNumber);
+                Console.WriteLine("Smallest number: {0}", smallestNumber);
+            }
+		}
+
+        //Write a program to read the quantity and price for several products.
+		//It calculates and prints subtotal cost for the shopping cart, value of tax at 20%., and the grand total.
+		//You must introduce control to facilitate variable number of products, for example until input is ‘q’.
+        //Hint: Use two arrays one for quantities, and one for prices.
+
+
+		public static void Exercise8()
+		{
+			List<int> quantities = new List<int>();
+			List<double> prices = new List<double>();
+
+			int count = 0;
+			string input;
+			
+
+			while (true)
+			{
+
+                Console.Write("Quantity: ");
+                input = Console.ReadLine();
+
+				if (input.ToLower() == "q")
+				{
+					break;
+				}
+
+				if (int.TryParse(input, out int number) && number >= 0)
+				{
+                    Console.Write("Price: ");
+
+					if (double.TryParse(Console.ReadLine(), out double price) && price >= 0)
+					{
+						quantities.Add(number);
+						prices.Add(price);
+
+					
+						count++;
+					} else
+					{
+                        Console.WriteLine("Invalid price. Enter the correct quantity and price");
+                    }
+                } else
+				{
+                    Console.WriteLine("Invalid quantity. Enter a positive number");
+                }
+			}
+
+
+			// subtotal
+			double subTotal = 0;
+			double tax = 0;
+			for (int i = 0; i < count; i++)
+			{
+				subTotal += (prices[i] * quantities[i]);
+			}
+
+			tax = subTotal * 0.2;
+
+            Console.WriteLine("SubTotal: ${0:00.00}", subTotal);
+			Console.WriteLine("Tax: ${0:00.00}", tax);
+			Console.WriteLine("Grand total: ${0:00.00}", subTotal - tax);
+
         }
-	}
+
+
+    }
 }

@@ -10,9 +10,8 @@ namespace Exercises
     {
         static void Main(string[] args)
         {
-            Week6.Exercise5();
+            Week6.Exercise8();
 
-            
 
             Console.ReadLine();
         }
