@@ -435,5 +435,27 @@ namespace Exercises
         }
 
 
+		//Write a program that reverses a given array.
+
+		public static void Exercise10()
+		{
+			
+            int[] intArray = new int[5] {1, 2, 3, 4, 5};
+
+			int[] intArray2 = new int[intArray.Length];
+
+			int count = intArray.Length - 1;
+
+			for (int i = 0; i < intArray.Length; i++)
+			{
+				
+				intArray2[i] = intArray[count];
+				count--;
+
+				Console.Write(intArray2[i] + " ");
+            }
+        }
+
+
     }
 }
