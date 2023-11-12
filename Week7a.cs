@@ -83,7 +83,46 @@ namespace Exercises
 
         }
 
-       
+        //Write a program that fills an array of given size with random integers, prints out the array. Test it.
+        //Extend the program to double the size of the array,
+        //keep the same random integers in indexes 0 to size-1,
+        //and fill in the rest with new random integers.
+        //Hint: Arrays are immutable, you can’t change the size of arrays,
+        //how would you overcome/implement?
+
+        public static void Exercise2()
+        {
+            int[] intArray = new int[5];
+
+            Random random = new Random();
+
+            Console.Write("Array: ");
+
+            for (int i = 0; i < intArray.Length; i++)
+            {
+                intArray[i] = random.Next(1, 20);
+
+                Console.Write(intArray[i] + " ");
+
+            }
+            Console.WriteLine();
+
+            // doubling the size of array
+
+            Array.Resize(ref intArray, intArray.Length * 2);
+
+            for (int i = intArray.Length / 2; i < intArray.Length; i++)
+            {
+                
+                    intArray[i] = random.Next(1, 20);
+                    Console.WriteLine(intArray[i] + " ");
+            }
+
+            foreach (int number in intArray)
+            {
+                Console.Write(number + " ");
+            }
+        }
 
     }
 }
