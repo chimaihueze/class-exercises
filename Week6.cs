@@ -435,9 +435,25 @@ namespace Exercises
         }
 
 
-		//Write a program that reverses a given array.
+        //We are given an array of 5 integer numbers.
+        //Write a program that finds those subsets whose sum is 0. 
+        //Examples: - If we are given the numbers {3, -2, 1, 1, 8}, the sum of -2, 1 and 1 is 0.
+        //If we are given the numbers {3, 1, -7, 35, 22}, there are no subsets with sum 0.
 
-		public static void Exercise10()
+
+        public static void Exercise9()
+        {
+            int[] intArray = new int[5] { 3, -2, 1, 1, 8 };
+
+            for (int i = 0; i < intArray.Length; i++)
+            {
+
+            }
+        }
+
+        //Write a program that reverses a given array.
+
+        public static void Exercise10()
 		{
 			
             int[] intArray = new int[5] {1, 2, 3, 4, 5};
