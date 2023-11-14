@@ -124,5 +124,37 @@ namespace Exercises
             }
         }
 
+        // Write a program that creates and fills in an array with all the letters of alphabet.
+        // It takes a string input, it prints a string of numbers separated by space,
+        // each number is the index in array of the corresponding letter in array.
+        // For example: It reads “cbad” and it prints “2 1 0 3”. 
+
+        public static void Exercise3()
+        {
+            char[] alphabet = new char[26];
+            Console.Write("Alphabets: ");
+            for (int i = 0;i < alphabet.Length;i++)
+            {
+                alphabet[i] = (char)('a' + i);
+                Console.Write(alphabet[i] + " ");
+            }
+
+            Console.WriteLine();
+
+            Console.Write("Enter a string: ");
+            string input = Console.ReadLine();
+
+            for (int i = 0; i < alphabet.Length; i++)
+            {
+                for (int j = 0; j < input.Length; j++)
+                {
+                    if (alphabet[i] == input[j])
+                    {
+                        Console.Write(i + " ");
+                    }
+                }
+            }
+        }
+
     }
 }
